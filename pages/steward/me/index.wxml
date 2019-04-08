@@ -1,0 +1,25 @@
+<van-card title="{{userInfo.name}}" 
+    currency="学工号:" 
+    price="{{userInfo.id}}"
+    thumb="{{ userInfo.imageURL }}" 
+    lazy-load
+    custom-class="card show-card"
+    title-class="title"
+    thumb-class="show-thumb">
+    <view slot="footer"> 
+      <van-icon name="share" size="1.5rem"
+      custom-class="red"
+      bind:click="onLogout"/>
+    </view>
+  </van-card>
+
+<van-toast id="van-toast"></van-toast>
+<van-dialog id="van-dialog"></van-dialog>
+
+<view class="offset-tabbar"></view>
+<van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">
+  <van-tabbar-item icon="chat">消息中心</van-tabbar-item>
+  <van-tabbar-item icon="service">设备报修</van-tabbar-item>
+  <van-tabbar-item icon="smile-comment">留言信箱</van-tabbar-item>
+  <van-tabbar-item icon="manager">个人中心</van-tabbar-item>
+</van-tabbar>

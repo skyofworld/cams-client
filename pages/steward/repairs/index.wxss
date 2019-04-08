@@ -1,0 +1,18 @@
+@import "/pages/common/style/index.wxss";
+
+.button {
+  margin-left: 1rem;
+}
+
+.group {
+  height: 8rem;
+  position: fixed;
+  top: 8rem;
+  margin-bottom: 5rem;
+}
+
+.right-bottom-icon {
+  position: fixed;
+  left: 80%;
+  top: 24rem;
+}

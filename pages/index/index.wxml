@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<van-dialog
+  use-slot
+  async-close
+  show="{{ show }}"
+  title="请登录"
+  bind:close="onClose"
+>
+<van-field
+  value="{{ userInfo.id }}"
+  label="学工号"
+  placeholder="请输入学工号"
+  bind:change="onChangeOfId"
+/>
+<van-field
+  value="{{ userInfo.password }}"
+  type="password"
+  label="密码"
+  :border="false"
+  placeholder="请输入密码"
+  bind:change="onChangeOfPassword"
+/>
+</van-dialog>
+
+<van-toast id="van-toast" />
+
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->

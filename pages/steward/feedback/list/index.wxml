@@ -1,0 +1,39 @@
+<view wx:for="{{feedbacks}}" wx:key="{{item.id}}">
+  <van-card title="{{item.date}}" desc="{{item.content}}" thumb="{{ imageURL }}" custom-class="card">
+  <view slot="footer">
+        <van-button type="danger" size="mini" 
+          bind:click="onRemove" data-item="{{item}}"
+          custom-class="button">移除</van-button>
+        <van-button type="primary" size="mini"                  bind:click="onDetail"  data-notification="{{item}}" 
+        custom-class="button">回复</van-button>
+      </view>
+  </van-card>
+</view>
+
+<van-dialog id="simple-dialog"></van-dialog>
+<van-dialog id="van-dialog"
+    use-slot
+    async-close
+    title="留言回复"
+    show="{{ show }}"
+    show-cancel-button
+    bind:close="onClose"
+  >
+  <van-field
+    value="{{ reply }}"
+    type="textarea"
+    height="8rem"
+    autosize
+    placeholder="请输入回复内容"
+    bind:change="onChangeOfReply"
+  />
+  </van-dialog>
+<van-toast id="van-toast"></van-toast>
+
+<view class="offset-tabbar"></view>
+<van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">
+  <van-tabbar-item icon="chat">消息中心</van-tabbar-item>
+  <van-tabbar-item icon="service">设备报修</van-tabbar-item>
+  <van-tabbar-item icon="smile-comment">留言信箱</van-tabbar-item>
+  <van-tabbar-item icon="manager">个人中心</van-tabbar-item>
+</van-tabbar>

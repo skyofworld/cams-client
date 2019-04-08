@@ -1,0 +1,11 @@
+@import "/pages/common/style/index.wxss";
+
+.button {
+  margin-left: 1rem;
+}
+
+.group {
+  height: 8rem;
+  position: fixed;
+  top: 6rem;
+}

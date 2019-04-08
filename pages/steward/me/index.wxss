@@ -1,0 +1,12 @@
+@import "/pages/common/style/index.wxss";
+
+.show-card {
+  width: 84%;
+  border-radius: 1rem;
+  margin: 8%;
+}
+
+.title {
+  margin: 1rem;
+  font-size: 16px;
+}

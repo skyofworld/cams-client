@@ -1,0 +1,42 @@
+<van-cell-group class="card group">
+  <van-field
+    value="{{ roomId }}"
+    required
+    label="机房号"
+    placeholder="请输入机房编号"
+    bind:change="onChangeOfID"
+  />
+
+  <van-field
+    value="{{ deviceName }}"
+    required
+    label="设备名"
+    placeholder="请输入门窗或设备"
+    required
+      bind:change="onChangeOfObject"
+  />
+  
+  <van-field
+      autosize
+      value="{{ resource.desc }}"
+      label="描述信息"
+      type="textarea"
+      placeholder="请输入描述信息"
+      border="{{ false }}"
+      bind:change="onChangeOfDesc"
+    />
+</van-cell-group>
+
+  <van-icon name="checked" bind:click="onSubmit"
+      size="3rem"
+      custom-class="green right-bottom-icon"/>
+      
+<van-toast id="van-toast" />
+
+<view class="offset-tabbar"></view>
+<van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">
+  <van-tabbar-item icon="chat">消息中心</van-tabbar-item>
+  <van-tabbar-item icon="service">设备报修</van-tabbar-item>
+  <van-tabbar-item icon="smile-comment">留言信箱</van-tabbar-item>
+  <van-tabbar-item icon="manager">个人中心</van-tabbar-item>
+</van-tabbar>

@@ -1,0 +1,63 @@
+<van-tabs  swipeable animated sticky active="{{activeTab}}" >
+  <van-tab title="已发布">
+    <view wx:for="{{notifications}}" wx:key="{{item.id}}">
+  <van-card currency="阅读人数:" price="{{item.times}}" desc="{{item.publishDate}}" title="{{item.title}}" thumb="{{ imageURL }}" custom-class="card">
+  <view slot="tags">
+    <van-tag type="primary">{{item.type}}</van-tag>
+  </view>
+  <view slot="footer">
+        <van-button type="danger" size="mini" 
+          bind:click="onRemove" data-item="{{item}}"
+          custom-class="button">移除</van-button>
+        <van-button type="primary" size="mini"                  bind:click="onDetail"  data-notification="{{item}}" 
+        custom-class="button">详情</van-button>
+      </view>
+  </van-card>
+</view>
+  </van-tab>
+  <van-tab title="消息发布">
+    <van-cell-group>
+      <van-field
+    value="{{ notification.title }}"
+    clearable
+    label="标题"
+    placeholder="请输入标题"
+  />
+
+  <van-field
+    value="{{ notification.content }}"
+    type="textarea"
+    autosize
+    label="正文"
+    placeholder="请输入正文"
+  />
+    </van-cell-group>
+    <van-icon name="checked" bind:click="onSubmit"
+      size="3rem" custom-class="green right-bottom-icon"/>
+  </van-tab>
+</van-tabs>
+
+<van-dialog id="simple-dialog" />
+<van-dialog id="van-dialog"
+    use-slot
+    async-close
+    title="请选择通知类型"
+    show="{{ show }}"
+    show-cancel-button
+    bind:close="onClose"
+  >
+   <van-picker
+  title="选择通知类型"
+  visible-item-count="2"
+  columns="{{ types }}" bind:change="onChangeOfType" />
+  </van-dialog>
+
+<van-toast id="van-toast" />
+
+<view class="offset-tabbar"></view>
+<van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">
+  <van-tabbar-item icon="chat">消息中心</van-tabbar-item>
+  <van-tabbar-item icon="service">设备报修</van-tabbar-item>
+  <van-tabbar-item icon="smile-comment">留言信箱</van-tabbar-item>
+  <van-tabbar-item icon="manager">个人中心</van-tabbar-item>
+</van-tabbar>

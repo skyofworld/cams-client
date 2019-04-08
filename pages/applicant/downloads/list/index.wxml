@@ -1,0 +1,29 @@
+<!--pages/user/download/download.wxml-->
+<view wx:for="{{resources}}" wx:key="{{item.id}}">
+  <van-card
+  currency="下载次数:"
+  price="{{item.times}}"
+  desc="{{item.desc}}"
+  title="{{item.name}}"
+  thumb="{{ item.imgURL }}"
+  custom-class="card"
+>
+  <view slot="tags">
+   <van-tag wx:if="{{item.times >= 30000}}" type="danger">HOT</van-tag>
+  </view>
+  <view slot="footer">
+    <van-button type="primary" size="mini"
+    bind:click="onClick" data-item="{{item}}">下载</van-button>
+  </view>
+</van-card>
+</view>
+
+<van-toast id="van-toast" />
+
+<view class="offset-tabbar"></view>
+<van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">
+  <van-tabbar-item icon="chat">消息通知</van-tabbar-item>
+  <van-tabbar-item icon="star">机房申请</van-tabbar-item>
+  <van-tabbar-item icon="award">资源下载</van-tabbar-item>
+  <van-tabbar-item icon="manager">个人中心</van-tabbar-item>
+</van-tabbar>

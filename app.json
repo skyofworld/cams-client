@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/applicant/notifications/list/index",
+    "pages/applicant/rooms/datetime/index",
+    "pages/applicant/rooms/list/index",
+    "pages/applicant/downloads/list/index",
+    "pages/applicant/me/index",
+    "pages/steward/notifications/list/index",
+    "pages/steward/repairs/index",
+    "pages/steward/feedback/list/index",
+    "pages/steward/me/index",
+    "pages/admin/rooms/list/index",
+    "pages/admin/repairs/list/index",
+    "pages/admin/resources/list/index",
+    "pages/admin/me/index",
+    "pages/common/pages/noti-detail/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "van-tabbar": "/component/vant/tabbar/index",
+    "van-tabbar-item": "/component/vant/tabbar-item/index",
+
+    "van-dialog": "/component/vant/dialog/index",
+    "van-toast": "/component/vant/toast/index",
+
+    "van-card": "/component/vant/card/index",
+    "van-tabs": "/component/vant/tabs/index",
+    "van-tab": "/component/vant/tab/index",
+    "van-collapse": "/component/vant/collapse/index",
+    "van-collapse-item": "/component/vant/collapse-item/index",
+    "van-button": "/component/vant/button/index",
+    "van-field": "/component/vant/field/index",
+    "van-notice-bar": "/component/vant/notice-bar/index",
+    "van-icon": "/component/vant/icon/index",
+    "van-picker": "/component/vant/picker/index",
+    "van-row": "/component/vant/row/index",
+    "van-col": "/component/vant/col/index",
+    "van-tag": "/component/vant/tag/index",
+    "van-cell-group": "/component/vant/cell-group/index",
+    "van-cell": "/component/vant/cell/index",
+    "van-steps": "/component/vant/steps/index",
+    "van-transition": "/component/vant/transition/index"
+  }
+}

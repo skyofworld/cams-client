@@ -1,0 +1,44 @@
+<van-steps steps="{{ steps }}" active="{{ activeStep }}" />
+
+<van-row>
+    <van-col span="12">
+      <van-button wx:if="{{activeStep == 0}}" type="primary" size="mini" bind:click="openCalendar" custom-class="button">选择日期</van-button>
+      <van-button wx:else type="primary" size="mini" bind:click="onPrevStep" custom-class="button">上一步</van-button>
+    </van-col>
+
+    <van-col span="12">
+      <van-button wx:if="{{activeStep == 2}}" type="primary" size="mini" bind:click="onConfirm" custom-class="button right-button">确定</van-button>
+      <van-button wx:else 
+      disabled="{{ (activeStep == 0 && dateValues.length <=0) }}" 
+      type="primary" size="mini" bind:click="onNextStep" custom-class="button right-button">下一步</van-button>
+    </van-col>
+  </van-row>
+
+<block wx:if="{{activeStep == 0}}">
+  <wux-calendar id="wux-calendar" />
+  <block wx:if="{{dateValues.length <= 0}}">
+    <text class="tip gray">尚未选择日期</text>
+  </block>
+  <block wx:else>
+    <text class="gray list">您已选择以下日期:</text>
+    <view wx:for="{{dateValues}}" wx:key="{{item}}" class="list">
+      <text>{{item}}</text>
+    </view>
+  </block>
+</block>
+
+<block wx:if="{{activeStep == 1}}">
+  <van-picker show-toolbar cancel-button-text=" " confirm-button-text="时间:{{ periodTimes[currentPeriodId] }}" visible-item-count="5" columns="{{ periodNames }}" bind:change="onChange" />
+</block>
+
+<block wx:if="{{activeStep == 2}}">
+  <van-picker show-toolbar cancel-button-text=" " confirm-button-text="课程代码:{{ courseIds[currentCourseIdx] }}" visible-item-count="5" columns="{{ courseNames }}" bind:change="onChangeOfCourse" />
+</block>
+
+<view class="offset-tabbar"></view>
+<van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">
+  <van-tabbar-item icon="chat">消息通知</van-tabbar-item>
+  <van-tabbar-item icon="star">机房申请</van-tabbar-item>
+  <van-tabbar-item icon="award">资源下载</van-tabbar-item>
+  <van-tabbar-item icon="manager">个人中心</van-tabbar-item>
+</van-tabbar>
