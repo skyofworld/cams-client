@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -13,8 +13,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.5.1",
-	"appid": "wxee39c8b466bac86e",
-	"projectname": "computer-center-management-system",
+	"appid": "wxdeba155ff0178d29",
+	"projectname": "cams",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

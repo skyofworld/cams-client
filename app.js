@@ -13,6 +13,18 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        console.log(res.code)
+        wx.request({
+          url: this.globalData.baseUrl + '/users/login?code=' + res.code,
+          method: 'POST',
+          success(res) {
+            let ret = res.data;
+            let pageUrl = `${pagePath}?openid=${ret.data.openid}`
+            // wx.navigateTo({
+            //   url: pageUrl,
+            // })
+          }
+        })
       }
     })
     // 获取用户信息
@@ -37,6 +49,7 @@ App({
     })
   },
   globalData: {
+    baseUrl: 'http://localhost:8080',
     tabBars: {
       user: [
         '/pages/applicant/notifications/list/index',
