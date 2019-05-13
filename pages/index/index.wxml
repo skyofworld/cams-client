@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<!-- <van-dialog
+<van-dialog
   use-slot
   async-close
   show="{{ show }}"
@@ -22,9 +22,9 @@
 />
 </van-dialog>
 
-<van-toast id="van-toast" /> -->
+<van-toast id="van-toast" />
 
-<view class="container">
+<!-- <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -32,7 +32,12 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="usermotto"> -->
+    <!-- <text class="user-motto">{{motto}}</text> -->
+    <!-- <radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio" wx:for="{{roles}}">
+        <radio value="{{item.id}}" checked="{{item.checked}}" /> {{item.name}}
+      </label>
+    </radio-group>
   </view>
-</view>
+</view> -->

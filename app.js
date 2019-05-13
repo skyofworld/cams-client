@@ -14,17 +14,19 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         console.log(res.code)
-        wx.request({
-          url: this.globalData.baseUrl + '/users/login?code=' + res.code,
-          method: 'POST',
-          success(res) {
-            let ret = res.data;
-            let pageUrl = `${pagePath}?openid=${ret.data.openid}`
-            // wx.navigateTo({
-            //   url: pageUrl,
-            // })
-          }
-        })
+        let pagePath = '';
+        
+        // wx.request({
+        //   url: this.globalData.baseUrl + '/users/login?code=' + res.code,
+        //   method: 'POST',
+        //   success(res) {
+        //     let ret = res.data;
+        //     let pageUrl = `${pagePath}?openid=${ret.data.openid}`
+        //     wx.navigateTo({
+        //       url: pageUrl,
+        //     })
+        //   }
+        // })
       }
     })
     // 获取用户信息
@@ -51,11 +53,11 @@ App({
   globalData: {
     baseUrl: 'http://localhost:8080',
     tabBars: {
-      user: [
-        '/pages/applicant/notifications/list/index',
-        '/pages/applicant/rooms/datetime/index',
-        '/pages/applicant/downloads/list/index',
-        '/pages/applicant/me/index'
+      sponsor: [
+        '/pages/sponsor/notifications/index',
+        '/pages/sponsor/initiate/index',
+        '/pages/sponsor/activities/index',
+        '/pages/sponsor/me/index'
         ],
       admin: [
         '/pages/admin/rooms/list/index',

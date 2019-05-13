@@ -1,0 +1,23 @@
+<!-- <van-notice-bar
+  mode="closeable"
+  text="您选择的日期:{{dates}} 上课时段:{{ periodName}} 课程名称:{{courseName}}"
+/> -->
+
+<view wx:for="{{rooms}}" wx:key="{{item.id}}">
+  <van-card currency="容量:" price="{{item.capacity}}" desc="{{item.desc}}" title="机房{{item.id}}" thumb="{{ item.imgURL }}" custom-class="card">
+    <view slot="footer">
+      <van-button type="primary" size="mini" bind:click="onClick" data-room="{{item}}">申请</van-button>
+    </view>
+  </van-card>
+</view>
+
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />
+
+<view class="offset-tabbar"></view>
+<van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">
+  <van-tabbar-item icon="chat">消息通知</van-tabbar-item>
+  <van-tabbar-item icon="star">活动发起</van-tabbar-item>
+  <van-tabbar-item icon="award">活动列表</van-tabbar-item>
+  <van-tabbar-item icon="manager">个人中心</van-tabbar-item>
+</van-tabbar>

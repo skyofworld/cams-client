@@ -1,21 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/applicant/notifications/list/index",
-    "pages/applicant/rooms/datetime/index",
-    "pages/applicant/rooms/list/index",
-    "pages/applicant/downloads/list/index",
-    "pages/applicant/me/index",
-    "pages/steward/notifications/list/index",
-    "pages/steward/repairs/index",
-    "pages/steward/feedback/list/index",
-    "pages/steward/me/index",
-    "pages/admin/rooms/list/index",
-    "pages/admin/repairs/list/index",
-    "pages/admin/resources/list/index",
-    "pages/admin/me/index",
-    "pages/common/pages/noti-detail/index",
-    "pages/logs/logs"
+    "pages/sponsor/notifications/index",
+    "pages/sponsor/initiate/index",
+    "pages/sponsor/activities/index",
+    "pages/sponsor/me/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,10 +14,8 @@
   "usingComponents": {
     "van-tabbar": "/component/vant/tabbar/index",
     "van-tabbar-item": "/component/vant/tabbar-item/index",
-
     "van-dialog": "/component/vant/dialog/index",
     "van-toast": "/component/vant/toast/index",
-
     "van-card": "/component/vant/card/index",
     "van-tabs": "/component/vant/tabs/index",
     "van-tab": "/component/vant/tab/index",
@@ -46,6 +32,9 @@
     "van-cell-group": "/component/vant/cell-group/index",
     "van-cell": "/component/vant/cell/index",
     "van-steps": "/component/vant/steps/index",
-    "van-transition": "/component/vant/transition/index"
-  }
+    "van-transition": "/component/vant/transition/index",
+    "van-datetime-picker": "/component/vant/datetime-picker/index",
+    "wux-calendar": "/component/wux/calendar/index"
+  },
+  "sitemapLocation": "sitemap.json"
 }

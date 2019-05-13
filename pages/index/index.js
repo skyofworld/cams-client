@@ -8,7 +8,28 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-
+    roles: [
+      {
+        id: 4,
+        name: '居民',
+        checked: true
+      },
+      {
+        id: 3,
+        name: '导师',
+        checked: false
+      },
+      {
+        id: 2,
+        name: '发起方',
+        checked: false
+      },
+      {
+        id: 1,
+        name: '管理员',
+        checked: false
+      },
+    ],
     show: true,
     userInfo: {
       id: '',
