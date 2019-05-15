@@ -9,6 +9,7 @@ Page({
   data: {
     rooms: [],
     dates: [],
+    activities: [],
     periodId: 0,
     periodName: '',
     courseId: 0,
@@ -23,10 +24,10 @@ Page({
   },
 
   onClick: function (e) {
-    let room = e.target.dataset.room
+    let act = e.target.dataset.act
     Dialog.confirm({
-      title: "机房" + room.id + "(容量" + room.capacity + ")",
-      message: "确认申请吗？"
+      title: `活动：${act.name}`,
+      message: "确认取消吗？"
     }).then(() => {
       let applying = {
         roomId: room.id,
@@ -73,9 +74,9 @@ Page({
     //   courseId: param.courseId,
     //   courseName: param.courseName
     // })
-    const { availableRooms } = require('../../../utils/data/available-rooms.js')
+    const { activities } = require('../../../utils/data/activities.js')
     this.setData({
-      rooms: availableRooms
+      activities
     })
   },
 

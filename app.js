@@ -54,9 +54,9 @@ App({
     baseUrl: 'http://localhost:8080',
     tabBars: {
       sponsor: [
-        '/pages/sponsor/notifications/index',
+        '/pages/sponsor/all-activities/index',
         '/pages/sponsor/initiate/index',
-        '/pages/sponsor/activities/index',
+        '/pages/sponsor/my-activities/index',
         '/pages/sponsor/me/index'
         ],
       admin: [

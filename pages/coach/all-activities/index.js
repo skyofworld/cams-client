@@ -4,7 +4,7 @@ Page({
    * Page initial data
    */
   data: {
-    notifications: [],
+    activities: [],
     activeBar: 0,
   },
   
@@ -15,17 +15,8 @@ Page({
   },
 
   onTap: function(e) {
-    let noti = e.currentTarget.dataset.noti
-    noti.times++
-    this.data.notifications.forEach((val, idx)=>{
-      if (val.id === noti.id) {
-        val.times = noti.times
-      }
-    })
-    this.setData({
-      notifications: this.data.notifications
-    })
-    let to = `/pages/common/pages/noti-detail/index?notification=${JSON.stringify(noti)}`
+    let act = e.currentTarget.dataset.act
+    let to = `/pages/common/pages/act-detail/index?act=${JSON.stringify(act)}`
     wx.navigateTo({
       url: to
       })
@@ -34,18 +25,18 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    const { notifications } = require('../../../utils/data/notifications.js')
+    const { activities } = require('../../../utils/data/activities.js')
     this.setData({
-      notifications: notifications
+      activities
     })
-    this.data.notifications.forEach((val, idx)=>{
-      if (val.times < 100) {
-        this.data.infoCount ++
-      }
-    })
-    this.setData({
-      infoCount: this.data.infoCount
-    })
+    // this.data.activities.forEach((val, idx)=>{
+    //   if (val.times < 100) {
+    //     this.data.infoCount ++
+    //   }
+    // })
+    // this.setData({
+    //   infoCount: this.data.infoCount
+    // })
   },
 
   /**
