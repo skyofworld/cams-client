@@ -10,7 +10,7 @@ Page({
   
   onChangeOfTabbar: function(e) {
     wx.redirectTo({
-      url: getApp().globalData.tabBars.sponsor[e.detail]
+      url: getApp().globalData.tabBars.coach[e.detail]
     })
   },
 
@@ -24,6 +24,9 @@ Page({
   /**
    * Lifecycle function--Called when page load
    */
+
+  
+
   onLoad: function (options) {
     const { activities } = require('../../../utils/data/activities.js')
     this.setData({

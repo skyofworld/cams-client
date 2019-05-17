@@ -16,12 +16,12 @@ Page({
     ],
     feedbackContent: '',
     rateValue: 5, 
-    activeBar: 3,
+    activeBar: 2,
   },
 
   onChangeOfTabbar: function (e) {
     wx.redirectTo({
-      url: app.globalData.tabBars.sponsor[e.detail]
+      url: app.globalData.tabBars.coach[e.detail]
     })
   },
 

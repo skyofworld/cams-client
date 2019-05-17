@@ -59,6 +59,11 @@ App({
         '/pages/sponsor/my-activities/index',
         '/pages/sponsor/me/index'
         ],
+      coach: [
+        '/pages/coach/all-activities/index',
+        '/pages/coach/my-activities/index',
+        '/pages/coach/me/index'
+      ],
       admin: [
         '/pages/admin/rooms/list/index',
         '/pages/admin/repairs/list/index',

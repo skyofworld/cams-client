@@ -14,12 +14,12 @@ Page({
     periodName: '',
     courseId: 0,
     courseName: '',
-    activeBar: 2
+    activeBar: 1
   },
 
   onChangeOfTabbar: function (e) {
     wx.redirectTo({
-      url: getApp().globalData.tabBars.sponsor[e.detail]
+      url: getApp().globalData.tabBars.coach[e.detail]
     })
   },
 

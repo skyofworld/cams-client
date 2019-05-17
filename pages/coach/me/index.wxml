@@ -46,7 +46,6 @@
 <view class="offset-tabbar"></view>
 <van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">
   <van-tabbar-item icon="chat">社区活动</van-tabbar-item>
-  <van-tabbar-item icon="star">活动发起</van-tabbar-item>
   <van-tabbar-item icon="award">我的活动</van-tabbar-item>
   <van-tabbar-item icon="manager">个人中心</van-tabbar-item>
 </van-tabbar>
