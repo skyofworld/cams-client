@@ -1,43 +1,43 @@
-import Dialog from '../../../component/vant/dialog/dialog'
-import Toast from '../../../component/vant/toast/toast'
-
-const app = getApp()
-
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    userInfo: {},
-    activeBar: 4,
+    msgs: [],
+    activeBar: 1,
   },
-
-  onChangeOfTabbar: function (e) {
+  
+  onChangeOfTabbar: function(e) {
     wx.redirectTo({
-      url: app.globalData.tabBars.admin[e.detail]
+      url: getApp().globalData.tabBars.admin[e.detail]
     })
   },
 
-  onLogout: function(e) {
-    Dialog.confirm({
-      message: '退出登录吗'
-    }).then(() => {
-      wx.redirectTo({
-        url: '/pages/index/index',
+  onTap: function(e) {
+    let msg = e.currentTarget.dataset.msg
+    let msgDetail = getApp().globalData.pages.msgDetail
+    let to = `${msgDetail}?msg=${JSON.stringify(msg)}`
+    wx.navigateTo({
+      url: to
       })
-    }).catch(() => {
-      // on cancel
-    })
   },
-
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    const { activities } = require('../../../utils/data/activities.js')
     this.setData({
-      userInfo: app.globalData.userInfo
+      activities
     })
+    // this.data.activities.forEach((val, idx)=>{
+    //   if (val.times < 100) {
+    //     this.data.infoCount ++
+    //   }
+    // })
+    // this.setData({
+    //   infoCount: this.data.infoCount
+    // })
   },
 
   /**

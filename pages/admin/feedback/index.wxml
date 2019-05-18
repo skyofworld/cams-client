@@ -1,20 +1,10 @@
-<van-card title="{{userInfo.name}}" 
-    currency="学工号:" 
-    price="{{userInfo.id}}"
-    thumb="{{ userInfo.imageURL }}" 
-    lazy-load
-    custom-class="card show-card"
-    title-class="title"
-    thumb-class="show-thumb">
-    <view slot="footer"> 
-      <van-icon name="share" size="1.5rem"
-      custom-class="red"
-      bind:click="onLogout"/>
-    </view>
+<view wx:for="{{msgs}}" wx:key="{{item.id}}">
+  <van-card currency="参与人数:" price="{{item.number}}" desc="发布日期：{{item.updateTime}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card" bind:tap="onTap" data-msg="{{item}}">
+  <!-- <view slot="tags">
+    <van-tag wx:if="{{item.times < 100}}" type="danger">new</van-tag>
+  </view> -->
   </van-card>
- 
-<van-dialog id="van-dialog" />
-<van-toast id="van-toast" />
+</view>
 
 <view class="offset-tabbar"></view>
 <van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">

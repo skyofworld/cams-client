@@ -1,29 +1,20 @@
-let app = getApp()
-
+// pages/user/notifications/notification-detail/notification-detail.js
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    repairs: [],
-    activeBar: 1,
-  },
-
-  onChangeOfTabbar: function (e) {
-    wx.redirectTo({
-      url: app.globalData.tabBars.admin[e.detail]
-    })
+    activity: {}
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    const { repairs } = require('../../../../utils/data/repairs.js')
-    this.setData({
-      repairs: repairs
-    })
+      this.setData({
+        activity: JSON.parse(options.act)
+      })
   },
 
   /**

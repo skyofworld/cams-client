@@ -1,30 +1,50 @@
-let app = getApp()
-
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    rooms: [], 
+    activities: [],
     activeTab: 0,
-    activeBar: 0,
+    activeBar: 2,
   },
-
-  onChangeOfTabbar: function (e) {
+  
+  onChangeOfTabbar: function(e) {
     wx.redirectTo({
-      url: app.globalData.tabBars.admin[e.detail]
+      url: getApp().globalData.tabBars.admin[e.detail]
     })
   },
 
+  onChangeOfTab(event) {
+    wx.showToast({
+      title: `切换到标签 ${event.detail.index + 1}`,
+      icon: 'none'
+    });
+  },
+
+  onTap: function(e) {
+    let act = e.currentTarget.dataset.act
+    let to = `/pages/common/pages/act-detail/index?act=${JSON.stringify(act)}`
+    wx.navigateTo({
+      url: to
+      })
+  },
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    const { rooms } = require('../../../../utils/data/rooms.js')
+    const { activities } = require('../../../utils/data/activities.js')
     this.setData({
-      rooms: rooms
+      activities
     })
+    // this.data.activities.forEach((val, idx)=>{
+    //   if (val.times < 100) {
+    //     this.data.infoCount ++
+    //   }
+    // })
+    // this.setData({
+    //   infoCount: this.data.infoCount
+    // })
   },
 
   /**

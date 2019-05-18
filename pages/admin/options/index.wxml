@@ -1,0 +1,76 @@
+<van-tabs sticky active="{{ activeTab }}" bind:change="onChangeOfTab">
+  <van-tab title="活动类型">
+    <view wx:for="{{activities}}" wx:key="{{item.id}}">
+      <van-card currency="参与人数:" price="{{item.number}}" desc="发布日期：{{item.updateTime}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card" bind:tap="onTap" data-act="{{item}}">
+        <view slot="footer">
+          <van-button type="danger" size="mini" bind:click="deleteType">删除</van-button>
+        </view>
+      </van-card>
+    </view>
+  </van-tab>
+  <van-tab title="活动场地">
+    <view wx:for="{{activities}}" wx:key="{{item.id}}">
+      <van-card currency="参与人数:" price="{{item.number}}" desc="发布日期：{{item.updateTime}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card" bind:tap="onTap" data-act="{{item}}">
+        <view slot="footer">
+          <van-button type="danger" size="mini" bind:click="deletePlace">删除</van-button>
+        </view>
+      </van-card>
+    </view>
+  </van-tab>
+</van-tabs>
+
+<van-button wx:if="{{ activeTab == 0}}" type="primary" size="mini" bind:click="addType">添加</van-button>
+<van-dialog
+    use-slot
+    async-close
+    show="{{ show }}"
+    show-cancel-button
+    bind:close="onClose"
+    confirm-button-open-type="getUserInfo"
+    bind:getuserinfo="getUserInfo"
+  >
+    <van-field
+      value="{{ username }}"
+      label="用户名"
+      placeholder="请输入用户名"
+    />
+    <van-field
+      value="{{ password }}"
+      type="password"
+      label="密码"
+      border="{{ false }}"
+      placeholder="请输入密码"
+    />
+  </van-dialog>
+<van-button wx:if="{{ activeTab == 1}}" type="primary" size="mini" bind:click="addPlace">添加</van-button>
+<van-dialog
+    use-slot
+    async-close
+    show="{{ show }}"
+    show-cancel-button
+    bind:close="onClose"
+    confirm-button-open-type="getUserInfo"
+    bind:getuserinfo="getUserInfo"
+  >
+    <van-field
+      value="{{ username }}"
+      label="用户名"
+      placeholder="请输入用户名"
+    />
+    <van-field
+      value="{{ password }}"
+      type="password"
+      label="密码"
+      border="{{ false }}"
+      placeholder="请输入密码"
+    />
+  </van-dialog>
+
+<view class="offset-tabbar"></view>
+<van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">
+  <van-tabbar-item icon="chat">社区活动</van-tabbar-item>
+  <van-tabbar-item icon="star">留言查看</van-tabbar-item>
+  <van-tabbar-item icon="award">活动选项</van-tabbar-item>
+  <van-tabbar-item icon="award">用户管理</van-tabbar-item>
+  <van-tabbar-item icon="manager">个人中心</van-tabbar-item>
+</van-tabbar>
