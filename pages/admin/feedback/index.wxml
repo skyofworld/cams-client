@@ -1,8 +1,8 @@
 <view wx:for="{{msgs}}" wx:key="{{item.id}}">
-  <van-card currency="参与人数:" price="{{item.number}}" desc="发布日期：{{item.updateTime}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card" bind:tap="onTap" data-msg="{{item}}">
-  <!-- <view slot="tags">
+  <van-card currency="阅读人数:" price="{{item.times}}" desc="{{item.updateTime}}" title="{{item.content}}" thumb="{{ imageURL }}" custom-class="card" bind:tap="onTap" data-msg="{{item}}">
+  <view slot="tags">
     <van-tag wx:if="{{item.times < 100}}" type="danger">new</van-tag>
-  </view> -->
+  </view>
   </van-card>
 </view>
 

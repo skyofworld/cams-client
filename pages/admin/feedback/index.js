@@ -4,7 +4,25 @@ Page({
    * Page initial data
    */
   data: {
-    msgs: [],
+    msgs: [
+      {
+        id: 1,
+        content: '留言1',
+        author: 1,
+        updateTime: '1/30/2019'
+      },
+      {
+        id: 2,
+        content: '留言2',
+        author: 2,
+        updateTime: '1/30/2019'
+      },
+      {
+        id: 3,
+        content: '留言3',
+        author: 3,
+        updateTime: '1/30/2019'
+      },],
     activeBar: 1,
   },
   

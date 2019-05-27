@@ -4,7 +4,36 @@ Page({
    * Page initial data
    */
   data: {
-    activities: [],
+    activityTypes: [
+      {
+        id: 1,
+        name: '类型1',
+        credit: 50,
+        updateTime: '1/21/2019'
+      },
+      {
+        id: 2,
+        name: '类型2',
+        credit: 100,
+        updateTime: '1/21/2019'
+      }
+    ],
+    places: [
+      {
+        id: 1,
+        name: '地点1',
+        number: 25,
+        updateTime: '1/23/2019'
+      },
+      {
+        id: 2,
+        name: '地点2',
+        number: 30,
+        updateTime: '1/23/2019'
+      }
+    ],
+    typeDialog: false,
+    placeDialog: false,
     activeTab: 0,
     activeBar: 2,
   },
@@ -20,14 +49,41 @@ Page({
       title: `切换到标签 ${event.detail.index + 1}`,
       icon: 'none'
     });
+    this.setData({
+      activeTab: event.detail.index
+    })
   },
 
-  onTap: function(e) {
-    let act = e.currentTarget.dataset.act
-    let to = `/pages/common/pages/act-detail/index?act=${JSON.stringify(act)}`
-    wx.navigateTo({
-      url: to
-      })
+  openTypeDialog: function() {
+    this.setData({
+      typeDialog: true
+    })
+  },
+
+  openPlaceDialog: function() {
+    this.setData({
+      placeDialog: true
+    })
+  },
+
+  onCloseOfTypeDialog: function() {
+    this.setData({
+      typeDialog: false
+    })
+  },
+
+  onCloseOfPlaceDialog: function() {
+    this.setData({
+      placeDialog: false
+    })
+  },
+
+  addType: function() {
+    
+  },
+
+  addPlace: function() {
+    
   },
   /**
    * Lifecycle function--Called when page load
