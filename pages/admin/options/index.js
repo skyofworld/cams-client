@@ -32,6 +32,16 @@ Page({
         updateTime: '1/23/2019'
       }
     ],
+    type: {
+      name: '',
+      credit: 0,
+      intro: ''
+    },
+    place: {
+      address: '',
+      intro: '',
+      number: 0
+    },
     typeDialog: false,
     placeDialog: false,
     activeTab: 0,
@@ -45,10 +55,10 @@ Page({
   },
 
   onChangeOfTab(event) {
-    wx.showToast({
-      title: `切换到标签 ${event.detail.index + 1}`,
-      icon: 'none'
-    });
+    // wx.showToast({
+    //   title: `切换到标签 ${event.detail.index + 1}`,
+    //   icon: 'none'
+    // });
     this.setData({
       activeTab: event.detail.index
     })

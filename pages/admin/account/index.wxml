@@ -1,10 +1,32 @@
-<view wx:for="{{activities}}" wx:key="{{item.id}}">
-  <van-card currency="参与人数:" price="{{item.number}}" desc="发布日期：{{item.updateTime}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card" bind:tap="onTap" data-act="{{item}}">
-  <!-- <view slot="tags">
-    <van-tag wx:if="{{item.times < 100}}" type="danger">new</van-tag>
-  </view> -->
-  </van-card>
-</view>
+<van-tabs sticky active="{{ activeTab }}" bind:change="onChangeOfTab">
+  <van-tab title="活动发起">
+    <view wx:for="{{sponsors}}" wx:key="{{item.id}}">
+      <van-card currency="积分:" price="{{item.credit}}" desc="电话：{{item.phone}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card">
+        <view slot="footer">
+          <van-button type="danger" size="mini" bind:click="disableUser" data->封号</van-button>
+        </view>
+      </van-card>
+    </view>
+  </van-tab>
+  <van-tab title="导师">
+    <view wx:for="{{coaches}}" wx:key="{{item.id}}">
+      <van-card currency="积分:" price="{{item.credit}}" desc="电话：{{item.phone}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card">
+        <view slot="footer">
+          <van-button type="danger" size="mini" bind:click="disableUser" data->封号</van-button>
+        </view>
+      </van-card>
+    </view>
+  </van-tab>
+  <van-tab title="居民">
+    <view wx:for="{{residents}}" wx:key="{{item.id}}">
+      <van-card currency="积分:" price="{{item.credit}}" desc="电话：{{item.phone}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card">
+        <view slot="footer">
+          <van-button type="danger" size="mini" bind:click="disableUser" data->封号</van-button>
+        </view>
+      </van-card>
+    </view>
+  </van-tab>
+</van-tabs>
 
 <view class="offset-tabbar"></view>
 <van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">

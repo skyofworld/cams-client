@@ -21,8 +21,9 @@
 
 <van-icon name="add" wx:if="{{ activeTab == 0}}" color="green" size="3em" custom-class="icon-add" bind:click="openTypeDialog"/>
 <van-dialog use-slot async-close show="{{ typeDialog }}" show-cancel-button bind:close="onCloseOfTypeDialog" confirm-button-open-type="getUserInfo" bind:getuserinfo="addType">
-  <van-field value="{{ username }}" label="用户名" placeholder="请输入用户名" />
-  <van-field value="{{ password }}" type="password" label="密码" border="{{ false }}" placeholder="请输入密码" />
+  <van-field value="{{ type.name }}" label="名称" placeholder="请输入名称" />
+  <van-field value="{{ type.credit }}" type="number" label="积分" border="{{ false }}" placeholder="请输入积分" />
+  <van-field value="{{ type.intro }}" label="简介" type="textarea" border="{{ false }}" placeholder="请输入简介" />
 </van-dialog>
 <van-icon name="add" wx:if="{{ activeTab == 1}}" color='green' size="3em" custom-class="icon-add" bind:click="openPlaceDialog" />
 <van-dialog 
@@ -33,8 +34,9 @@ show-cancel-button
 bind:close="onCloseOfPlaceDialog" 
 confirm-button-open-type="getUserInfo" 
 bind:getuserinfo="addType">
-  <van-field value="{{ username }}" label="用户名" placeholder="请输入用户名" />
-  <van-field value="{{ password }}" type="password" label="密码" border="{{ false }}" placeholder="请输入密码" />
+  <van-field value="{{ place.address }}" label="地址" placeholder="请输入地址" />
+  <van-field value="{{ place.number }}" type="number" label="容量" border="{{ false }}" placeholder="请输入人员容量" />
+  <van-field value="{{ place.intro }}" label="简介" type="textarea" border="{{ false }}" placeholder="请输入简介" />
 </van-dialog>
 
 <view class="offset-tabbar"></view>
