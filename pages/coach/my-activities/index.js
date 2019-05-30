@@ -71,6 +71,14 @@ Page({
      url: to
    })
  },
+
+  onTap: function(e){
+    let act=e.currentTarget.dataset.act
+    let to=`/pages/common/act-detail/index?act=${JSON.stringify(act)}`
+    wx.navigateTo({
+      url:to
+    })
+  },
   /**
    * Lifecycle function--Called when page load
    */

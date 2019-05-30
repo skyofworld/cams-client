@@ -9,11 +9,18 @@ Page({
   data: {
     activities: [],
     activeBar: 0,
+    disabled:false,
   },
   
   onChangeOfTabbar: function(e) {
     wx.redirectTo({
       url: getApp().globalData.tabBars.coach[e.detail]
+    })
+  },
+
+  setDisabled: function (e) {
+    this.setData({
+      disabled: !this.data.disabled
     })
   },
 
@@ -57,7 +64,7 @@ Page({
   },
   onTap: function(e) {
     let act = e.currentTarget.dataset.act
-    let to = `/pages/common/pages/act-detail/index?act=${JSON.stringify(act)}`
+    let to = `/pages/common/act-detail/index?act=${JSON.stringify(act)}`
     wx.navigateTo({
       url: to
       })

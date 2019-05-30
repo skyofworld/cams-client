@@ -4,7 +4,7 @@
 /> -->
 
 <view wx:for="{{activities}}" wx:key="{{item.id}}">
-  <van-card currency="参与人数:" price="{{item.number}}" desc="{{item.intro}}" title="{{item.name}}" thumb="{{ item.imgURL }}" custom-class="card">
+  <van-card currency="参与人数:" price="{{item.number}}" desc="{{item.intro}}" title="{{item.name}}" thumb="{{ item.imgURL }}" custom-class="card" bind:tap="onTap">
     <view slot="footer">
     <van-button type="primary" size="mini" bind:click="Generate" data-act="{{item}}">签到码</van-button>
       <van-button type="danger" size="mini" bind:click="onClick" data-act="{{item}}">取消</van-button>

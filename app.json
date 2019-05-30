@@ -1,14 +1,14 @@
 {
   "pages": [
+    "pages/coach/all-activities/index",
+    "pages/coach/my-activities/index",
+    "pages/coach/me/index",
+    "pages/coach/qrcode/index",
     "pages/admin/activities/index",
     "pages/admin/feedback/index",
     "pages/admin/options/index",
     "pages/admin/account/index",
     "pages/admin/me/index",
-    "pages/coach/my-activities/index",
-    "pages/coach/me/index",
-    "pages/coach/all-activities/index",
-    "pages/coach/qrcode/index",
     "pages/sponsor/all-activities/index",
     "pages/sponsor/initiate/index",
     "pages/sponsor/my-activities/index",

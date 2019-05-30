@@ -4,7 +4,7 @@
     <van-tag wx:if="{{item.times < 100}}" type="danger">new</van-tag>
   </view> -->
   <view slot="footer">
-      <van-button type="primary" size="mini" bind:click="onClick" data-act="{{item}}">抢单</van-button>
+      <van-button type="primary" size="mini" bind:click="onClick" data-act="{{item}}"disabled="{{disabled}}">抢单</van-button>
     </view>
   </van-card>
 </view>
