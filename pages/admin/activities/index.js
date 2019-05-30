@@ -1,30 +1,43 @@
-let app = getApp()
-
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    rooms: [], 
-    activeTab: 0,
+    activities: [],
     activeBar: 0,
   },
-
-  onChangeOfTabbar: function (e) {
+  
+  onChangeOfTabbar: function(e) {
     wx.redirectTo({
-      url: app.globalData.tabBars.admin[e.detail]
+      url: getApp().globalData.tabBars.admin[e.detail]
     })
   },
 
+  onTap: function(e) {
+    let act = e.currentTarget.dataset.act
+    let actDetail = getApp().globalData.pages.actDetail
+    let to = `${actDetail}?act=${JSON.stringify(act)}`
+    wx.navigateTo({
+      url: to
+      })
+  },
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    const { rooms } = require('../../../../utils/data/rooms.js')
+    const { activities } = require('../../../utils/data/activities.js')
     this.setData({
-      rooms: rooms
+      activities
     })
+    // this.data.activities.forEach((val, idx)=>{
+    //   if (val.times < 100) {
+    //     this.data.infoCount ++
+    //   }
+    // })
+    // this.setData({
+    //   infoCount: this.data.infoCount
+    // })
   },
 
   /**

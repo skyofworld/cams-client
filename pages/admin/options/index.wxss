@@ -1,0 +1,7 @@
+@import "/pages/common/style/index.wxss";
+
+.icon-add {
+  position: absolute;
+  left: 80%;
+  top: 100px;
+}

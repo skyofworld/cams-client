@@ -5,7 +5,7 @@ Page({
    * Page initial data
    */
   data: {
-    notification: {}
+    activity: {}
   },
 
   /**
@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
       this.setData({
-        notification: JSON.parse(options.notification)
+        activity: JSON.parse(options.act)
       })
   },
 

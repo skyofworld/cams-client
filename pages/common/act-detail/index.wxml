@@ -1,0 +1,12 @@
+<view>
+  <h3 class="center">{{activity.name}}</h3>
+</view>
+<view>
+  <text class="center date">发布日期:{{activity.updateTime}}</text>
+</view>
+<view>
+  <text class="center times">参与人数:{{activity.number}}</text>
+</view>
+<view>
+  <rich-text class="content">{{ activity.intro }}</rich-text>
+</view>
