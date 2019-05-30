@@ -1,6 +1,7 @@
 import Dialog from '../../../component/vant/dialog/dialog'
 import Toast from '../../../component/vant/toast/toast'
 
+
 Page({
 
   /**
@@ -14,7 +15,7 @@ Page({
     periodName: '',
     courseId: 0,
     courseName: '',
-    activeBar: 1
+    activeBar: 1,
   },
 
   onChangeOfTabbar: function (e) {
@@ -22,6 +23,7 @@ Page({
       url: getApp().globalData.tabBars.coach[e.detail]
     })
   },
+
 
   onClick: function (e) {
     let act = e.target.dataset.act
@@ -62,6 +64,13 @@ Page({
     })
   },
 
+ Generate:function(e){
+   let act=e.currentTarget.dataset.act
+   let to=`/pages/coach/qrcode/index?act=${JSON.stringify(act)}`
+   wx.navigateTo({
+     url: to
+   })
+ },
   /**
    * Lifecycle function--Called when page load
    */

@@ -4,10 +4,13 @@
     <van-tag wx:if="{{item.times < 100}}" type="danger">new</van-tag>
   </view> -->
   <view slot="footer">
-      <van-button type="danger" size="mini" bind:click="onClick" data-act="{{item}}">抢单</van-button>
+      <van-button type="primary" size="mini" bind:click="onClick" data-act="{{item}}">抢单</van-button>
     </view>
   </van-card>
 </view>
+
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />
 
 <view class="offset-tabbar"></view>
 <van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">
