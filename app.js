@@ -55,6 +55,13 @@ App({
   globalData: {
     baseUrl: 'http://localhost:8080',
     tabBars: {
+      admin: [
+        "/pages/admin/activities/index",
+        "/pages/admin/feedback/index",
+        "/pages/admin/options/index",
+        "/pages/admin/account/index",
+        "/pages/admin/me/index",
+      ],
       sponsor: [
         '/pages/sponsor/all-activities/index',
         '/pages/sponsor/initiate/index',
@@ -66,24 +73,21 @@ App({
         '/pages/resident/my-activities/index',
         '/pages/resident/me/index'
       ],
-      admin: [
-        '/pages/admin/rooms/list/index',
-        '/pages/admin/repairs/list/index',
-        '/pages/admin/resources/list/index',
-        '/pages/admin/me/index'
+      coach: [
+        '/pages/coach/all-activities/index',
+        '/pages/coach/my-activities/index',
+        '/pages/coach/me/index'
       ],
-      steward: [
-        '/pages/steward/notifications/list/index',
-        '/pages/steward/repairs/index',
-        '/pages/steward/feedback/list/index',
-        '/pages/steward/me/index'
-      ]
     },
     homePages: [
       '/pages/admin/rooms/list/index',
       '/pages/steward/notifications/list/index',
       '/pages/applicant/notifications/list/index'
     ],
+    pages: {
+      actDetail: '/pages/common/act-detail/index',
+      msgDetail: '/pages/common/msg-detail/index'
+    },
     users: [],
     userInfo: {}
   }

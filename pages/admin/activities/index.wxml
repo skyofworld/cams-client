@@ -1,10 +1,8 @@
 <view wx:for="{{activities}}" wx:key="{{item.id}}">
   <van-card currency="参与人数:" price="{{item.number}}" desc="发布日期：{{item.updateTime}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card" bind:tap="onTap" data-act="{{item}}">
-  <!-- <view slot="tags">
-    <van-tag wx:if="{{item.times < 100}}" type="danger">new</van-tag>
-  </view> -->
   <view slot="footer">
-      <van-button type="danger" size="mini" bind:click="onClick" data-act="{{item}}">抢单</van-button>
+      <van-button type="primary" size="mini" bind:click="onClick" data-act="{{item}}">同意</van-button>
+      <van-button type="danger" size="mini" bind:click="onClick" data-act="{{item}}">不同意</van-button>
     </view>
   </van-card>
 </view>
@@ -12,6 +10,8 @@
 <view class="offset-tabbar"></view>
 <van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">
   <van-tabbar-item icon="chat">社区活动</van-tabbar-item>
-  <van-tabbar-item icon="award">我的活动</van-tabbar-item>
+  <van-tabbar-item icon="star">留言查看</van-tabbar-item>
+  <van-tabbar-item icon="award">活动选项</van-tabbar-item>
+  <van-tabbar-item icon="award">用户管理</van-tabbar-item>
   <van-tabbar-item icon="manager">个人中心</van-tabbar-item>
 </van-tabbar>

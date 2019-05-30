@@ -1,0 +1,9 @@
+<view>
+  <h3 class="center date">发布日期:{{msg.updateTime}}</h3>
+</view>
+<view>
+  <text class="center">{{msg.author}}</text>
+</view>
+<view>
+  <rich-text class="content">{{ msg.content }}</rich-text>
+</view>

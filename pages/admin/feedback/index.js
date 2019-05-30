@@ -4,19 +4,38 @@ Page({
    * Page initial data
    */
   data: {
-    activities: [],
-    activeBar: 0,
+    msgs: [
+      {
+        id: 1,
+        content: '留言1',
+        author: 1,
+        updateTime: '1/30/2019'
+      },
+      {
+        id: 2,
+        content: '留言2',
+        author: 2,
+        updateTime: '1/30/2019'
+      },
+      {
+        id: 3,
+        content: '留言3',
+        author: 3,
+        updateTime: '1/30/2019'
+      },],
+    activeBar: 1,
   },
   
   onChangeOfTabbar: function(e) {
     wx.redirectTo({
-      url: getApp().globalData.tabBars.coach[e.detail]
+      url: getApp().globalData.tabBars.admin[e.detail]
     })
   },
 
   onTap: function(e) {
-    let act = e.currentTarget.dataset.act
-    let to = `/pages/common/pages/act-detail/index?act=${JSON.stringify(act)}`
+    let msg = e.currentTarget.dataset.msg
+    let msgDetail = getApp().globalData.pages.msgDetail
+    let to = `${msgDetail}?msg=${JSON.stringify(msg)}`
     wx.navigateTo({
       url: to
       })
@@ -24,9 +43,6 @@ Page({
   /**
    * Lifecycle function--Called when page load
    */
-
-  
-
   onLoad: function (options) {
     const { activities } = require('../../../utils/data/activities.js')
     this.setData({

@@ -1,45 +1,20 @@
+// pages/user/notifications/notification-detail/notification-detail.js
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    activities: [],
-    activeBar: 0,
-  },
-  
-  onChangeOfTabbar: function(e) {
-    wx.redirectTo({
-      url: getApp().globalData.tabBars.coach[e.detail]
-    })
+    activity: {}
   },
 
-  onTap: function(e) {
-    let act = e.currentTarget.dataset.act
-    let to = `/pages/common/pages/act-detail/index?act=${JSON.stringify(act)}`
-    wx.navigateTo({
-      url: to
-      })
-  },
   /**
    * Lifecycle function--Called when page load
    */
-
-  
-
   onLoad: function (options) {
-    const { activities } = require('../../../utils/data/activities.js')
-    this.setData({
-      activities
-    })
-    // this.data.activities.forEach((val, idx)=>{
-    //   if (val.times < 100) {
-    //     this.data.infoCount ++
-    //   }
-    // })
-    // this.setData({
-    //   infoCount: this.data.infoCount
-    // })
+      this.setData({
+        activity: JSON.parse(options.act)
+      })
   },
 
   /**

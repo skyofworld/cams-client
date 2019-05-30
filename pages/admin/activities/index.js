@@ -10,13 +10,14 @@ Page({
   
   onChangeOfTabbar: function(e) {
     wx.redirectTo({
-      url: getApp().globalData.tabBars.coach[e.detail]
+      url: getApp().globalData.tabBars.admin[e.detail]
     })
   },
 
   onTap: function(e) {
     let act = e.currentTarget.dataset.act
-    let to = `/pages/common/pages/act-detail/index?act=${JSON.stringify(act)}`
+    let actDetail = getApp().globalData.pages.actDetail
+    let to = `${actDetail}?act=${JSON.stringify(act)}`
     wx.navigateTo({
       url: to
       })
@@ -24,9 +25,6 @@ Page({
   /**
    * Lifecycle function--Called when page load
    */
-
-  
-
   onLoad: function (options) {
     const { activities } = require('../../../utils/data/activities.js')
     this.setData({
