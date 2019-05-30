@@ -4,6 +4,8 @@ App({
     const { users } = require('./utils/data/users.js')
     this.globalData.users = users
     this.globalData.userInfo = users[0]
+    this.globalData.userInfo.credit = 56
+
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -59,6 +61,11 @@ App({
         '/pages/sponsor/my-activities/index',
         '/pages/sponsor/me/index'
         ],
+      resident: [
+        '/pages/resident/all-activities/index',
+        '/pages/resident/my-activities/index',
+        '/pages/resident/me/index'
+      ],
       admin: [
         '/pages/admin/rooms/list/index',
         '/pages/admin/repairs/list/index',

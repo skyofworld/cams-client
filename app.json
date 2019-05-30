@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/resident/my-activities/index",
+    "pages/resident/all-activities/index",
+    "pages/resident/me/index",
     "pages/sponsor/all-activities/index",
     "pages/sponsor/initiate/index",
     "pages/sponsor/my-activities/index",

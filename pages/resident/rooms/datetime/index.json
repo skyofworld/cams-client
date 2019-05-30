@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "时间选择",
-  "usingComponents": {
-    "wux-calendar": "/component/wux/calendar/index"
-  }
-}
