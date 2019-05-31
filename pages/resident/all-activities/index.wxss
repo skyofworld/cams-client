@@ -1,0 +1,3 @@
+/* pages/resident/all-activities/index.wxss */
+@import "/pages/common/style/index.wxss";
+

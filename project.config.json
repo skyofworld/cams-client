@@ -13,8 +13,13 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.5.1",
+<<<<<<< HEAD
+	"appid": "wxd62832571db828be",
+	"projectname": "cams",
+=======
 	"appid": "wxdfa4f18fbbf6c3c9",
 	"projectname": "cams-client",
+>>>>>>> d79d3d0a91184a94d665ff5c100978904a2df6b4
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
