@@ -1,0 +1,7 @@
+/* pages/resident/my-activities/index.wxss */
+@import "/pages/common/style/index.wxss";
+.arrive{
+  position: fixed;
+  left: 40%;
+  top: 400px;
+}

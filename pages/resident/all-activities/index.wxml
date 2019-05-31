@@ -1,0 +1,19 @@
+<!--pages/resident/all-activities/index.wxml-->
+<view wx:for="{{activities}}" wx:key="{{item.id}}">
+  <van-card currency="参与人数:" price="{{item.number}}" desc="发布日期：{{item.updateTime}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card" bind:tap="onTap" data-act="{{item}}">
+  <view slot="footer">
+        <van-button wx:if="{{item.number < 30}}" type="primary" size="mini" bind:click="onselect" >选择</van-button>
+        <van-button wx:else disabled='false' size="mini">选择</van-button>
+      </view>
+  </van-card>
+</view>
+
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />
+
+<view class="offset-tabbar"></view>
+<van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">
+  <van-tabbar-item icon="chat">社区活动</van-tabbar-item>
+  <van-tabbar-item icon="award">我的活动</van-tabbar-item>
+  <van-tabbar-item icon="manager">个人中心</van-tabbar-item>
+</van-tabbar>
