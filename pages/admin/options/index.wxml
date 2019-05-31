@@ -1,7 +1,7 @@
 <van-tabs sticky active="{{ activeTab }}" bind:change="onChangeOfTab">
   <van-tab title="活动类型">
-    <view wx:for="{{activities}}" wx:key="{{item.id}}">
-      <van-card currency="参与人数:" price="{{item.number}}" desc="发布日期：{{item.updateTime}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card" bind:tap="onTap" data-act="{{item}}">
+    <view wx:for="{{activityTypes}}" wx:key="{{item.id}}">
+      <van-card currency="积分:" price="{{item.credit}}" desc="创建日期：{{item.updateTime}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card">
         <view slot="footer">
           <van-button type="danger" size="mini" bind:click="deleteType">删除</van-button>
         </view>
@@ -9,8 +9,8 @@
     </view>
   </van-tab>
   <van-tab title="活动场地">
-    <view wx:for="{{activities}}" wx:key="{{item.id}}">
-      <van-card currency="参与人数:" price="{{item.number}}" desc="发布日期：{{item.updateTime}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card" bind:tap="onTap" data-act="{{item}}">
+    <view wx:for="{{places}}" wx:key="{{item.id}}">
+      <van-card currency="容量:" price="{{item.number}}" desc="创建日期：{{item.updateTime}}" title="{{item.name}}" thumb="{{ imageURL }}" custom-class="card">
         <view slot="footer">
           <van-button type="danger" size="mini" bind:click="deletePlace">删除</van-button>
         </view>
@@ -19,52 +19,25 @@
   </van-tab>
 </van-tabs>
 
-<van-button wx:if="{{ activeTab == 0}}" type="primary" size="mini" bind:click="addType">添加</van-button>
-<van-dialog
-    use-slot
-    async-close
-    show="{{ show }}"
-    show-cancel-button
-    bind:close="onClose"
-    confirm-button-open-type="getUserInfo"
-    bind:getuserinfo="getUserInfo"
-  >
-    <van-field
-      value="{{ username }}"
-      label="用户名"
-      placeholder="请输入用户名"
-    />
-    <van-field
-      value="{{ password }}"
-      type="password"
-      label="密码"
-      border="{{ false }}"
-      placeholder="请输入密码"
-    />
-  </van-dialog>
-<van-button wx:if="{{ activeTab == 1}}" type="primary" size="mini" bind:click="addPlace">添加</van-button>
-<van-dialog
-    use-slot
-    async-close
-    show="{{ show }}"
-    show-cancel-button
-    bind:close="onClose"
-    confirm-button-open-type="getUserInfo"
-    bind:getuserinfo="getUserInfo"
-  >
-    <van-field
-      value="{{ username }}"
-      label="用户名"
-      placeholder="请输入用户名"
-    />
-    <van-field
-      value="{{ password }}"
-      type="password"
-      label="密码"
-      border="{{ false }}"
-      placeholder="请输入密码"
-    />
-  </van-dialog>
+<van-icon name="add" wx:if="{{ activeTab == 0}}" color="green" size="3em" custom-class="icon-add" bind:click="openTypeDialog"/>
+<van-dialog use-slot async-close show="{{ typeDialog }}" show-cancel-button bind:close="onCloseOfTypeDialog" confirm-button-open-type="getUserInfo" bind:getuserinfo="addType">
+  <van-field value="{{ type.name }}" label="名称" placeholder="请输入名称" />
+  <van-field value="{{ type.credit }}" type="number" label="积分" border="{{ false }}" placeholder="请输入积分" />
+  <van-field value="{{ type.intro }}" label="简介" type="textarea" border="{{ false }}" placeholder="请输入简介" />
+</van-dialog>
+<van-icon name="add" wx:if="{{ activeTab == 1}}" color='green' size="3em" custom-class="icon-add" bind:click="openPlaceDialog" />
+<van-dialog 
+use-slot 
+async-close 
+show="{{ placeDialog }}" 
+show-cancel-button 
+bind:close="onCloseOfPlaceDialog" 
+confirm-button-open-type="getUserInfo" 
+bind:getuserinfo="addType">
+  <van-field value="{{ place.address }}" label="地址" placeholder="请输入地址" />
+  <van-field value="{{ place.number }}" type="number" label="容量" border="{{ false }}" placeholder="请输入人员容量" />
+  <van-field value="{{ place.intro }}" label="简介" type="textarea" border="{{ false }}" placeholder="请输入简介" />
+</van-dialog>
 
 <view class="offset-tabbar"></view>
 <van-tabbar active="{{ activeBar }}" bind:change="onChangeOfTabbar">
