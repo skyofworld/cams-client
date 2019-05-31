@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="main">
+    <view class="qrcode item">
+    <view>{{notice}}</view>
+      <canvas style="width: 200px; height: 200px;" canvas-id="myQrcode"></canvas>
+      <view class="tips">{{act.name}}</view>
+    </view>
+    </view>
+    </view>
+    
