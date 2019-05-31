@@ -1,3 +1,6 @@
+import Dialog from '../../../component/vant/dialog/dialog'
+import Toast from '../../../component/vant/toast/toast'
+
 Page({
 
   /**
@@ -6,6 +9,7 @@ Page({
   data: {
     activities: [],
     activeBar: 0,
+    disabled:false,
   },
   
   onChangeOfTabbar: function(e) {
@@ -14,9 +18,53 @@ Page({
     })
   },
 
+  setDisabled: function (e) {
+    this.setData({
+      disabled: !this.data.disabled
+    })
+  },
+
+  onClick: function (e) {
+    let act = e.target.dataset.act
+    Dialog.confirm({
+      title: `活动：${act.name}`,
+      message: "确认抢单吗？"
+    }).then(() => {
+      let applying = {
+        roomId: room.id,
+        dates: this.data.dates,
+        periodId: this.data.periodId,
+        courseId: this.data.courseId
+      }
+      //request parameter: JSON.stringify(applying)
+      //mock: 
+      this.data.rooms.forEach((val, idx) => {
+        if (val.id === applying.roomId) {
+          this.data.rooms.splice(idx, 1)
+        }
+      })
+
+      Toast.loading({
+        duration: 0,       // 持续展示 toast
+        forbidClick: true, // 禁用背景点击
+        message: '申请中...',
+        loadingType: 'spinner',
+        selector: '#van-toast'
+      })
+      setTimeout(() => {
+        Toast.clear()
+        Toast.success('申请成功!')
+        this.setData({
+          rooms: this.data.rooms
+        })
+      }, 1000)
+    }).catch(() => {
+      Toast.fail('本地错误!')
+    })
+  },
   onTap: function(e) {
     let act = e.currentTarget.dataset.act
-    let to = `/pages/common/pages/act-detail/index?act=${JSON.stringify(act)}`
+    let to = `/pages/common/act-detail/index?act=${JSON.stringify(act)}`
     wx.navigateTo({
       url: to
       })

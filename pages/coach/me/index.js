@@ -10,14 +10,29 @@ Page({
    */
   data: {
     userInfo: {},
-    active: [],
+    active: [{
+      name: "aaa",
+      credit: 52,
+      src: "../images/1.png"
+    }, {
+      name: "bbb",
+      credit: 63,
+      src: "../images/2.png"
+    }, {
+      name: "ccc",
+      credit: 41,
+      src: "../images/3.png"
+    }
+
+    ],
     applications: [],
-    periodNames: ['一,二节','三,四,五节','六,七节','八,九节','十,十一,十二节'
+    periodNames: ['一,二节', '三,四,五节', '六,七节', '八,九节', '十,十一,十二节'
     ],
     feedbackContent: '',
-    rateValue: 5, 
+    rateValue: 5,
     activeBar: 2,
   },
+
 
   onChangeOfTabbar: function (e) {
     wx.redirectTo({
